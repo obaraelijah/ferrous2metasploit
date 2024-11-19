@@ -5,3 +5,22 @@ edition = "2021"
 
 [dependencies]
 ferrous-sdk = { version = "*", git = "https://github.com/obaraelijah/Ferrous-project" }
+
+# Async runtime
+tokio = { version = ">=1.23.1", features = ["full"] }
+
+# Serialization
+serde = { version = "~1", features = ["derive"] }
+url = { version = "~2", features = ["serde"] }
+uuid = { version = "~1", features = ["v4"] }
+toml = { version = "~0.8" }
+
+# CLI parse
+clap = { version = "~4", features = ["derive"] }
+
+# DB
+rorm = { version = "~0.6", default-features = false, features = ["postgres-only", "tokio", "uuid", "cli"] }
+
+# Tracing
+tracing = { version = "~0.1" }
+tracing-subscriber = { version = "~0.3" }
