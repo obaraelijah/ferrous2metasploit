@@ -2,3 +2,10 @@
 Url = "<url>"
 User = "<user>"
 Password = "<password>"
+
+[Database]
+Host = "127.0.0.1"
+Port = 5432
+Name = "msf"
+User = "msf"
+Password = "msf"
