@@ -14,7 +14,7 @@ async fn main() -> Result<(),  Box<dyn std::error::Error>> {
     let cli = Cli::parse();
     let config = Config::from_path(&cli.config_path)?;
 
-    Database::connect(DatabaseConfiguration::new(DatabaseDriver::Postgres {
+    let db = Database::connect(DatabaseConfiguration::new(DatabaseDriver::Postgres {
         name: config.database.name,
         host: config.database.host,
         port: config.database.port,
@@ -23,5 +23,7 @@ async fn main() -> Result<(),  Box<dyn std::error::Error>> {
     }))
     .await?;
 
+    db.close().await;
+    
     Ok(())
 }
